@@ -12,7 +12,7 @@ router.post("/send", async (req, res) => {
     await sensorData.save();
     res.status(201).send({ status: "success", message: sensorData._id });
   } catch (err) {
-    res.status(500).send(err);
+    res.status(500).send({ status: "error", error: err });
   }
 });
 
