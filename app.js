@@ -4,8 +4,8 @@ var logger = require('morgan');
 
 require('dotenv').config()
 
-var sensorDataRouter = require('./routes/sensordata');
-
+const sensorDataRouter = require('./routes/sensordata');
+const viewRoutesRouter = require('./routes/viewroutes')
 var app = express();
 
 app.use(logger('dev'));
@@ -18,6 +18,7 @@ require('./dbconfig')()
 
 // Attach Routes
 app.use('/api', sensorDataRouter);
+app.use('/sensor', viewRoutesRouter);
 
 // error handler
 app.use(function(err, req, res, next) {
