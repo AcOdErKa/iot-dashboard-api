@@ -17,7 +17,7 @@ app.use(cookieParser());
 require('./dbconfig')()
 
 // Attach Routes
-app.use('/', sensorDataRouter);
+app.use('/api', sensorDataRouter);
 
 // error handler
 app.use(function(err, req, res, next) {
